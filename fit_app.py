@@ -49,7 +49,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, back)
 
-            bot.send_message(message.chat.id, '🔽 Верх тела', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Упражения', reply_markup=markup)
         # legs
         elif message.text == '👉 Ноги / Ягодицы':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -75,7 +75,7 @@ def bot_message(message):
                        item8, item9, item10, item11, item12, item13,
                        item14, item15, item16, item17, back)
 
-            bot.send_message(message.chat.id, '🔽 Ноги / Ягодицы', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Ноги / Ягодицы', reply_markup=markup)
         # chest muscles
         elif message.text == '👉 Грудь':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -85,7 +85,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, '🔽 Грудь', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Грудь', reply_markup=markup)
         # back muscles
         elif message.text == '👉 Спина':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -99,7 +99,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, back)
 
-            bot.send_message(message.chat.id, '🔽 Спина', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Спина', reply_markup=markup)
 
         elif message.text == '👉 Плечи':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -113,7 +113,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, back)
 
-            bot.send_message(message.chat.id, '🔽 Плечи', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Плечи', reply_markup=markup)
 
         elif message.text == '👉 Руки':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -125,7 +125,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, back)
 
-            bot.send_message(message.chat.id, '🔽 Руки', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Руки', reply_markup=markup)
         # abs
         elif message.text == '👉 Пресс':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -134,7 +134,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, '🔽 Пресс', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Пресс', reply_markup=markup)
         elif message.text == '🙃 Легче':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             item1 = types.KeyboardButton('Пресс с гантелей лежа')
@@ -143,7 +143,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, back)
 
-            bot.send_message(message.chat.id, '🙃 Легче / 🔽 Пресс', reply_markup=markup)
+            bot.send_message(message.chat.id, '🙃 Легче / Пресс', reply_markup=markup)
 
         elif message.text == '😎 Сложнее':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -153,7 +153,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, back)
 
-            bot.send_message(message.chat.id, '😎 Сложнее / 🔽 Пресс', reply_markup=markup)
+            bot.send_message(message.chat.id, '😎 Сложнее / Пресс', reply_markup=markup)
         # nutrition
         elif message.text == '🥗 Питание':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -162,7 +162,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, '🔽 Питание', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Питание', reply_markup=markup)
 
         elif message.text == '◀️ Назад':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -172,7 +172,7 @@ def bot_message(message):
             item4 = types.KeyboardButton('📲 Тренер')
             markup.add(item1, item2, item3, item4)
 
-            bot.send_message(message.chat.id, '🔽 Назад', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Назад', reply_markup=markup)
 
         elif message.text == '📲 Тренер':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -181,7 +181,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, '🔽 Тренер', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Тренер', reply_markup=markup)
             # bot.send_message(message.chat.id, 'https://www.instagram.com/zadnepryansky/')
 
         elif message.text == 'Гиперэкстензия':
