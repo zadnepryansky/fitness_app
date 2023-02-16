@@ -4,6 +4,7 @@ import random
 from exercises_youtube_links import ALL_EXERCISES
 from Constants import API_KEY
 
+
 bot = telebot.TeleBot(API_KEY)
 
 
@@ -15,19 +16,15 @@ def start(message):
     item2 = types.KeyboardButton('💪 Упражения')
     item3 = types.KeyboardButton('🥗 Питание')
     item4 = types.KeyboardButton('📲 Тренер')
+    item5 = types.KeyboardButton('🟣 Fitness Bot')
 
-    markup.add(item1, item2, item3, item4)
+    markup.add(item1, item2, item3, item4, item5)
 
-    bot.send_message(message.chat.id, f'Привет 👋, {message.from_user.first_name}!'
-                                      f'\n'
-                                      f'Этот бот покажет тебе правильную технику упражнений.'
-                                      f'\n'
-                                      f'Тут ты найдешь все что нужно для твоих тренировок'
-                                      f'\n'
-                                      f'\n'
-                                      f'Перемещайся по меню внизу ⬇️ и выбирай все что тебе нужно 💪'
-                                      f'\n'
-                                      f'Если пропало меню напиши /start 😊, хороших тренировок 💪', reply_markup=markup)
+    bot.send_message(message.chat.id, f'Привет 👋, {message.from_user.first_name}!\n'
+                                      f'\n🟣 Fitness Bot станет твоим помощником на пути здорового образа жизни, профессиональных тренировок и правильного питания.'
+                                      f'\n\nСделай свои трениовки эффективными и профессиональными!'
+                                      f'\nПеремещайся по меню внизу ⬇️ и выбирай все что тебе нужно ✅'
+                                      f'\n\nЕсли пропало меню напиши /start 😊, хороших тренировок 💪', reply_markup=markup)
 
 
 # get message in console
@@ -37,7 +34,7 @@ def bot_message(message):
     # from text in console
     if message.chat.type == 'private':
         if message.text == '🎲 Случайное упражнение':
-            bot.send_message(message.chat.id, 'Упражнение: ' + random.choice(random_exercises))
+            bot.send_message(message.chat.id, 'Твое случайное упражнение:\n ' + random.choice(random_exercises))
         elif message.text == '💪 Упражения':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             item1 = types.KeyboardButton('👉 Ноги / Ягодицы')
@@ -49,7 +46,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, back)
 
-            bot.send_message(message.chat.id, 'Упражения', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Ты в меню упражения', reply_markup=markup)
         # legs
         elif message.text == '👉 Ноги / Ягодицы':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -70,12 +67,13 @@ def bot_message(message):
             item14 = types.KeyboardButton('Румынская тяга со штангой')
             item15 = types.KeyboardButton('Ягодичный мостик со штангой')
             item16 = types.KeyboardButton('Приседания со штангой в Смитте')
+            item17 = types.KeyboardButton('Махи в кроссовере на скамье')
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, item7,
                        item8, item9, item10, item11, item12, item13,
                        item14, item15, item16, item17, back)
 
-            bot.send_message(message.chat.id, 'Ноги / Ягодицы', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Выбирай упражнение на ноги / ягодицы', reply_markup=markup)
         # chest muscles
         elif message.text == '👉 Грудь':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -85,7 +83,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, 'Грудь', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Выбирай упражнение на грудь', reply_markup=markup)
         # back muscles
         elif message.text == '👉 Спина':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -99,7 +97,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, back)
 
-            bot.send_message(message.chat.id, 'Спина', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Выбирай упражнение на спину', reply_markup=markup)
 
         elif message.text == '👉 Плечи':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -113,7 +111,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, item5, item6, back)
 
-            bot.send_message(message.chat.id, 'Плечи', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Выбирай упражнение на плечи', reply_markup=markup)
 
         elif message.text == '👉 Руки':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -125,7 +123,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, item3, item4, back)
 
-            bot.send_message(message.chat.id, 'Руки', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Выбирай упражнение на руки', reply_markup=markup)
         # abs
         elif message.text == '👉 Пресс':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -134,7 +132,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, 'Пресс', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Выбирай упражнение на пресс', reply_markup=markup)
         elif message.text == '🙃 Легче':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             item1 = types.KeyboardButton('Пресс с гантелей лежа')
@@ -150,8 +148,9 @@ def bot_message(message):
             item1 = types.KeyboardButton('Боковая планка')
             item2 = types.KeyboardButton('Планка “Перекаты”')
             item3 = types.KeyboardButton('Подъемы коленей к груди')
+            item4 = types.KeyboardButton('Повороты с блином')
             back = types.KeyboardButton('◀️ Назад')
-            markup.add(item1, item2, item3, back)
+            markup.add(item1, item2, item3, item4, back)
 
             bot.send_message(message.chat.id, '😎 Сложнее / Пресс', reply_markup=markup)
         # nutrition
@@ -162,7 +161,7 @@ def bot_message(message):
             back = types.KeyboardButton('◀️ Назад')
             markup.add(item1, item2, back)
 
-            bot.send_message(message.chat.id, 'Питание', reply_markup=markup)
+            bot.send_message(message.chat.id, '🥗 Питание', reply_markup=markup)
 
         elif message.text == '◀️ Назад':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -170,18 +169,21 @@ def bot_message(message):
             item2 = types.KeyboardButton('💪 Упражения')
             item3 = types.KeyboardButton('🥗 Питание')
             item4 = types.KeyboardButton('📲 Тренер')
-            markup.add(item1, item2, item3, item4)
+            item5 = types.KeyboardButton('🟣 Fitness Bot')
+            markup.add(item1, item2, item3, item4, item5)
 
-            bot.send_message(message.chat.id, 'Назад', reply_markup=markup)
+            bot.send_message(message.chat.id, 'Ты в главном меню', reply_markup=markup)
 
         elif message.text == '📲 Тренер':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            item1 = types.KeyboardButton('📲 Instagram')
-            item2 = types.KeyboardButton('📲 Telegram')
+            item8 = types.KeyboardButton('🙍‍Обо мне')
+            item1 = types.KeyboardButton('🟪 Instagram')
+            item2 = types.KeyboardButton('🟦 Telegram')
+            item3 = types.KeyboardButton('🟥 YouTube')
             back = types.KeyboardButton('◀️ Назад')
-            markup.add(item1, item2, back)
+            markup.add(item8, item1, item2, item3, back)
 
-            bot.send_message(message.chat.id, 'Тренер', reply_markup=markup)
+            bot.send_message(message.chat.id, '📲 Тренер', reply_markup=markup)
             # bot.send_message(message.chat.id, 'https://www.instagram.com/zadnepryansky/')
 
         elif message.text == 'Гиперэкстензия':
@@ -237,6 +239,9 @@ def bot_message(message):
             bot.send_message(message.chat.id, ex)
         elif message.text == 'Приседания со штангой в Смитте':
             ex = 'https://youtube.com/shorts/HKNM--vxXl0'
+            bot.send_message(message.chat.id, ex)
+        elif message.text == 'Махи в кроссовере на скамье':
+            ex = 'https://www.youtube.com/shorts/ck8WMSmUJbw'
             bot.send_message(message.chat.id, ex)
 
         elif message.text == 'Жим гантелей под углом':
@@ -316,11 +321,48 @@ def bot_message(message):
         elif message.text == 'Подъемы коленей к груди':
             ex = 'https://youtube.com/shorts/vJwAGIYIObU'
             bot.send_message(message.chat.id, ex)
+        elif message.text == 'Повороты с блином':
+            ex = 'https://www.youtube.com/shorts/xLGkFM3SKwM'
+            bot.send_message(message.chat.id, ex)
 
-        elif message.text == '📲 Instagram':
+        elif message.text == '🟣 Fitness Bot':
+            description = '''🟣 Fitness Bot 🟣
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+💪🏽 Fitness Bot -  Вашим помощник на пути здорового образа жизни, профессиональных тренировок и правильного питания.
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+✅ Тут ты найдешь большую базу лучших упражнений в видео формате в тренажером зале с правильной техникой, информацию о питании и многое другое.
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+🎲 Случайное упражнение - жми на кнопку и Fitness Bot в случайном порядке выдаст тебе любое упражнение.
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+💪🏽 Упражнения - тут ты найдешь профессиональные видео, снятые и смонтированные лично мной. Эти видео помогут тебе обратить внимание на важные детали в технике, что бы твои тренировки были наивысшего уровня. 
+Упражнения сгруппированы по мышечным группам, переходи по ним и выбирай любое упражнение. 
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+🥗 Питание - тут ты наедешь ответы на все вопросы по питанию. Научишься выбирать лучшие продукты и сделаешь свои тренировки более еффективными.
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+🟣 Тренер - тут ты найдешь информацию обо мне, и сможешь узнать лучше своего тренера, а так же тут есть ссылки для связи со мной в Telegram, Instagramm и мой Youtube канал.
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+📲 Fitness Bot будет обновляться и дополняться.
+Вы можете поучаствовать в обновлении проекта новыми идеями для улучшения ваших тренировок и здорового образа жизни.
+
+С предложениями улучшения пишите мне - @zadnepryansky'''
+            bot.send_message(message.chat.id, description)
+
+        elif message.text == '🙍‍Обо мне':
+            bot.send_message(message.chat.id,
+            f'\nПривет 👋, {message.from_user.first_name}!\nЯ профессиональный тренер из Украины 🇺🇦\n'
+            f'\n🏅Профессиональный спортсмен и чемпион по бодибилдингу\n'
+            f'\n🙌 Мой опыт работы тренером более 11 лет.'
+            f'\n💯 Автор фитнес проектов, семинаров.\n      Создатель образовательных платформ по фитнесу.'
+            f'\n✅ Моя особенность это результаты моих клиентов.'
+            f'\n🌐 Работа с более 2000 клиентов по всему миру.\n'
+            f'\n🎯 Моя цель - помагать людям достигать свох спортивных целей, делать людей счастливее, продвигать спорт и здоровый образ жизни.')
+
+        elif message.text == '🟪 Instagram':
             bot.send_message(message.chat.id, 'https://www.instagram.com/zadnepryansky/')
-        elif message.text == '📲 Telegram':
+        elif message.text == '🟦 Telegram':
             bot.send_message(message.chat.id, 'https://t.me/zadnepryansky')
+        elif message.text == '🟥 YouTube':
+            bot.send_message(message.chat.id, 'https://www.youtube.com/@zadnepryansky')
 
 
 bot.polling(none_stop=True)
